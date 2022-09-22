@@ -48,6 +48,8 @@ spec:
   clusterConditions:
     - status: 'True'
       type: ManagedClusterConditionAvailable
+  clusterSelector:
+    matchExpressions: [] # selects all clusters if not specified
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
