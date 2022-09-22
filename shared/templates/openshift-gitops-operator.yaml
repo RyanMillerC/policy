@@ -37,7 +37,6 @@ spec:
                   name: openshift-gitops-operator
                   source: redhat-operators
                   sourceNamespace: openshift-marketplace
-                  startingCSV: openshift-gitops-operator.v1.4.3
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
