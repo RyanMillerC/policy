@@ -44,11 +44,13 @@ metadata:
   name: openshift-gitops-operator
   namespace: {{ .Values.namespace }}
 spec:
-  clusterConditions:
-    - status: 'True'
-      type: ManagedClusterConditionAvailable
+  clusterConditions: []
   clusterSelector:
-    matchExpressions: [] # selects all clusters if not specified
+    matchExpressions:
+      - key: cluster.open-cluster-management.io/clusterset
+        operator: In
+        values:
+          - default
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
