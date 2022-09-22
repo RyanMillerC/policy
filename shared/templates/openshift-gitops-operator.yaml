@@ -15,7 +15,7 @@ spec:
           name: openshift-gitops-operator
         spec:
           remediationAction: enforce
-          severity: med
+          severity: high
           namespaceSelector:
             exclude:
               - kube-*
