@@ -1,3 +1,4 @@
+{{ if .Values.openshiftGitOps }}
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
@@ -61,3 +62,4 @@ subjects:
   - name: openshift-gitops-operator
     kind: Policy
     apiGroup: policy.open-cluster-management.io
+{{ end }}
