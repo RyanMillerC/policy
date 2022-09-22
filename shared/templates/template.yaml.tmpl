@@ -25,6 +25,16 @@ spec:
               objectDefinition:
                 # Put object here
 ---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: $NAME
+  namespace: policy
+spec:
+  clusterConditions:
+    - status: 'True'
+      type: ManagedClusterConditionAvailable
+---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
@@ -38,13 +48,3 @@ subjects:
   - name: $NAME
     kind: Policy
     apiGroup: policy.open-cluster-management.io
----
-apiVersion: apps.open-cluster-management.io/v1
-kind: PlacementRule
-metadata:
-  name: $NAME
-  namespace: policy
-spec:
-  clusterConditions:
-    - status: 'True'
-      type: ManagedClusterConditionAvailable
