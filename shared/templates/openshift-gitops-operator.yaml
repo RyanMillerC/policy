@@ -3,7 +3,7 @@ apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
   name: openshift-gitops-operator
-  namespace: policy
+  namespace: {{ .Values.namespace }}
 spec:
   remediationAction: enforce
   disabled: false
@@ -43,7 +43,7 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   name: openshift-gitops-operator
-  namespace: policy
+  namespace: {{ .Values.namespace }}
 spec:
   clusterConditions:
     - status: 'True'
@@ -53,7 +53,7 @@ apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
   name: openshift-gitops-operator
-  namespace: policy
+  namespace: {{ .Values.namespace }}
 placementRef:
   name: openshift-gitops-operator
   kind: PlacementRule
