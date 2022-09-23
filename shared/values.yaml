@@ -7,7 +7,7 @@ banner:
     text: Dev Cluster - dev.taco.moe
     color: "#000000" # Black
     backgroundColor: "#0088ce" # Blue
-  - clusterName: hub
+  - clusterName: local-cluster
     text: Hub Cluster - stage.taco.moe
     color: "#000000" # Black
     backgroundColor: "#FFF44F" # Yellow

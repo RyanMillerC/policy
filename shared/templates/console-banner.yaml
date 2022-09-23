@@ -16,7 +16,7 @@ spec:
           name: console-banner-{{ .clusterName }}
         spec:
           remediationAction: enforce
-          severity: med
+          severity: low
           namespaceSelector:
             exclude:
               - kube-*
