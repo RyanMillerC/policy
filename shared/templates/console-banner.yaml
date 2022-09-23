@@ -32,8 +32,8 @@ spec:
                 spec:
                   text: {{ .text }}
                   location: BannerTop
-                  color: {{ .color }}
-                  backgroundColor: {{ .backgroundColor }}
+                  color: "{{ .color }}"
+                  backgroundColor: "{{ .backgroundColor }}"
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
