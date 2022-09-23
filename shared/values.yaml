@@ -1,2 +1,20 @@
+# Namespace to place ACM policies under
 namespace: acm-policy
+
+# Deploy ConsoleBanner per cluster
+banner:
+  - clusterName: dev
+    text: Dev Cluster - dev.taco.moe
+    color: "#000000" # Black
+    backgroundColor: "#0088ce" # Blue
+  - clusterName: hub
+    text: Hub Cluster - stage.taco.moe
+    color: "#000000" # Black
+    backgroundColor: "#FFF44F" # Yellow
+  - clusterName: stage
+    text: Stage Cluster - stage.taco.moe
+    color: "#FFFFFF" # White
+    backgroundColor: "#EE0000" # Red
+
+# Install OpenShift Operator
 openshiftGitOps: true

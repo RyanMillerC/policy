@@ -1,0 +1,64 @@
+{{ range .Values.banner }}
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: console-banner-{{ .clusterName }}
+  namespace: policy
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: console-banner-{{ .clusterName }}
+        spec:
+          remediationAction: enforce
+          severity: med
+          namespaceSelector:
+            exclude:
+              - kube-*
+            include:
+              - default
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: console.openshift.io/v1
+                kind: ConsoleNotification
+                metadata:
+                  name: banner
+                spec:
+                  text: {{ .text }}
+                  location: BannerTop
+                  color: {{ .color }}
+                  backgroundColor: {{ .backgroundColor }}
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: console-banner-{{ .clusterName }}
+  namespace: policy
+spec:
+  clusterConditions:
+    - status: "True"
+      type: ManagedClusterConditionAvailable
+  clusterSelector:
+    matchLabels:
+      name: {{ .clusterName }}
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: console-banner-{{ .clusterName }}
+  namespace: policy
+placementRef:
+  name: console-banner-{{ .clusterName }}
+  kind: PlacementRule
+  apiGroup: apps.open-cluster-management.io
+subjects:
+  - name: console-banner-{{ .clusterName }}
+    kind: Policy
+    apiGroup: policy.open-cluster-management.io
+{{ end }}
