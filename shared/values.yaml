@@ -15,6 +15,3 @@ banner:
     text: Stage Cluster - stage.taco.moe
     color: "#FFFFFF" # White
     backgroundColor: "#EE0000" # Red
-
-# Install OpenShift Operator
-openshiftGitOps: true
