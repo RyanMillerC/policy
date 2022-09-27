@@ -12,5 +12,5 @@ governance policies for all clusters.
 here. I think this repo should show 2-3 policies and link to other repos that
 focus specifically on policy.
 
-[Hello OpenShift: Multi-Cluster Management]: https://github.com/hello-openshift-multicluster-gitops
+[Hello OpenShift: Multi-Cluster GitOps]: https://github.com/hello-openshift-multicluster-gitops
 [Red Hat Advanced Cluster Management (ACM) for Kubernetes]: https://www.redhat.com/en/technologies/management/advanced-cluster-management
