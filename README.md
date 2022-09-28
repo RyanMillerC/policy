@@ -23,17 +23,18 @@ validate compliance and to remediate findings.
 For example, the `web-terminal-operator` policy, looks like:
 
 ```mermaid
-raph TD
+graph TD
         subgraph dev [Dev OpenShift Cluster]
         DevWebTerminal["Web Terminal<br />Operator"]
         end
 
         subgraph hub [Hub Openshift Cluster]
+
         subgraph acm ["Red Hat Advanced Cluster Management (ACM)"]
         PlacementRule["web-terminal-operator<br />PlacementRule"] -.- PlacementRuleBinding["web-terminal-operator<br />PlacementRuleBinding"]
         Policy["web-terminal-operator<br />Policy"] -.- PlacementRuleBinding
-
         end
+
         HubWebTerminal["Web Terminal<br />Operator"]
         end
 
