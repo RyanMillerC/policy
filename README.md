@@ -90,4 +90,5 @@ Here's a few examples where **GitOps** should be used:
 [Governance Policy Documentation]: https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/latest/html/governance
 [Hello OpenShift: Multi-Cluster GitOps]: https://github.com/hello-openshift-multicluster-gitops
 [Red Hat Advanced Cluster Management (ACM) for Kubernetes]: https://www.redhat.com/en/technologies/management/advanced-cluster-management
+[gitops-hub]: https://github.com/hello-openshift-multicluster-gitops/gitops-hub
 [policy-collection]: https://github.com/stolostron/policy-collection
