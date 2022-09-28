@@ -1,0 +1,62 @@
+{{ range .Values.installWebTerminalOperator }}
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: web-terminal-operator
+  namespace: {{ $.Values.namespace }}
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: web-terminal-operator
+        spec:
+          remediationAction: enforce
+          severity: low
+          namespaceSelector:
+            exclude:
+              - kube-*
+            include:
+              - default
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: operators.coreos.com/v1alpha1
+                kind: Subscription
+                metadata:
+                  name: web-terminal
+                  namespace: openshift-operators
+                spec:
+                  name: web-terminal
+                  channel: fast
+                  installPlanApproval: Automatic
+                  source: redhat-operators
+                  sourceNamespace: openshift-marketplace
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: web-terminal-operator
+  namespace: {{ $.Values.namespace }}
+spec:
+  clusterConditions:
+    - status: "True"
+      type: ManagedClusterConditionAvailable
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: web-terminal-operator
+  namespace: {{ $.Values.namespace }}
+placementRef:
+  name: web-terminal-operator
+  kind: PlacementRule
+  apiGroup: apps.open-cluster-management.io
+subjects:
+  - name: web-terminal-operator
+    kind: Policy
+    apiGroup: policy.open-cluster-management.io

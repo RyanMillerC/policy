@@ -15,3 +15,6 @@ banner:
     text: Stage Cluster - stage.taco.moe
     color: "#FFFFFF" # White
     backgroundColor: "#EE0000" # Red
+
+# Install Web Terminal Operator across all clusters
+installWebTerminalOperator: true
