@@ -1,16 +1,18 @@
 # Namespace to place ACM policies under
 namespace: acm-policy
 
-# Deploy ConsoleBanner per cluster
+# Deploy banner (ConsoleNotification) at the top of each cluster console
 banner:
   - clusterName: dev
     text: Dev Cluster - dev.taco.moe
     color: "#000000" # Black
     backgroundColor: "#0088ce" # Blue
+
   - clusterName: local-cluster
     text: Hub Cluster - hub.taco.moe
     color: "#000000" # Black
     backgroundColor: "#FFF44F" # Yellow
+
   - clusterName: stage
     text: Stage Cluster - stage.taco.moe
     color: "#FFFFFF" # White
