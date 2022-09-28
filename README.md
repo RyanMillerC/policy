@@ -6,7 +6,11 @@ architecture.
 # Governance Policy for ACM
 
 This repo contains [Red Hat Advanced Cluster Management (ACM) for Kubernetes]
-governance policies for all clusters.
+governance policies for all clusters. The goal of this repo is to show how ACM
+policies can be deployed, instead of showcasing specific policies. Check out
+[policy-collection] for policies you can apply to your clusters.
+
+## How ACM Policies Work
 
 ACM policies are used to validate that managed clusters match their expected
 configuration. Each policy can require that specific manifests exist or do not
@@ -47,8 +51,14 @@ graph TD
         PlacementRuleBinding -- Enforces Compliance --> StageWebTerminal
 ```
 
+For more information on policies, check out the [Governance Policy
+Documentation] from Red Hat.
+
+## How ACM Policies are Deployed
+
 This repository is continuously deployed through [gitops-hub] to the Hub
-cluster:
+cluster. New policies added to this repo will be automatically deployed to ACM
+through Argo CD.
 
 ```mermaid
 graph TD
@@ -59,16 +69,6 @@ graph TD
 
 	GitOpsHub -- "Continously deploys<br />'policy' repo" --> ACMPolicies
 ```
-
-**NOTE:** It's not guaranteed that policies will be applied by the time an
-application is deployed by GitOps (Argo CD) to a given cluster.
-
-The goal of this repo is to show how ACM policies can be deployed, instead of
-showcasing specific policies. Check out [policy-collection] for policies you
-can apply to your clusters.
-
-For more information on policies, check out the [Governance Policy
-Documentation] from Red Hat.
 
 ## When to use Policy vs. GitOps
 
