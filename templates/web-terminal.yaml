@@ -1,4 +1,4 @@
-{{ range .Values.installWebTerminalOperator }}
+{{ if .Values.installWebTerminalOperator }}
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
@@ -60,3 +60,4 @@ subjects:
   - name: web-terminal-operator
     kind: Policy
     apiGroup: policy.open-cluster-management.io
+{{ end }}
